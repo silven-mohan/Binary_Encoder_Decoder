@@ -20,7 +20,7 @@ The program uses a custom dictionary (`binary_dict`) that maps characters to the
 
 ---
 
-##Author: Silven Mohan
+## Author: Silven Mohan
 
 ---
 
