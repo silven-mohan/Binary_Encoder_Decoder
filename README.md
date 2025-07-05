@@ -31,3 +31,9 @@ Run the program in any Python environment (Python 3.x):
 
 ```bash
 python binary_encoder_decoder.py
+```
+
+## 📃License
+
+  See included [LICENSE](./LICENSE) file for more details.
+  
