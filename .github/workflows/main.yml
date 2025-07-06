@@ -43,10 +43,10 @@ jobs:
           echo -e "\n\nDecode Output:\n" >> Test-Run-Result/Result.txt
           python binarypy.py < decode.txt >> Test-Run-Result/Result.txt
 
-      - name: Upload Binary Encoder/Decoder Test Run Results to Repo
+      - name: Upload Binary Encoder Decoder Test Run Results to Repo
         uses: actions/upload-artifact@v4
         with:
-          name: Push Binary Encoder/Decoder Test-Run-Result
+          name: Push Binary Encoder Decoder Test-Run-Result
           path: Test-Run-Result/Result.txt
       - name: Push Result.txt to Repo
         env:
@@ -56,5 +56,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
           git add Test-Run-Result/Result.txt
-          git commit -m "Update Binary Encoder/Decoder output [skip ci]" || echo "No changes to commit"
+          git commit -m "Update Binary Encoder Decoder output [skip ci]" || echo "No changes to commit"
           git push
