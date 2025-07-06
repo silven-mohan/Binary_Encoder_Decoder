@@ -22,7 +22,8 @@ jobs:
 
       - name: Run Binary Encoder
         run: |
-          echo -e "Hello World!\n" | python binarypy.py
+          echo "encode\n"
+          echo "Hello World!" | python binarypy.py
         
         
     
