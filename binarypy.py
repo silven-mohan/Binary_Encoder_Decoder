@@ -46,4 +46,4 @@ elif mode=='decode':
          else:
              text_output += "?"
          i+=8
-print("Decoded Text:",text_output)
+     print("Decoded Text:",text_output)
