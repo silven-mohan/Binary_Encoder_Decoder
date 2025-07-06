@@ -7,6 +7,9 @@ on:
       - '**/*.yml'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   run-binary-py:
     runs-on: ubuntu-latest
