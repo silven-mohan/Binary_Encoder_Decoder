@@ -20,10 +20,17 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Run Values for encoding
+        run: |
+          cat <<EOF > Input.txt
+          encode
+          Hello World!
+          EOF
+
       - name: Run Binary Encoder
         run: |
-          echo "encode\n"
-          echo "Hello World!" | python binarypy.py
+          python binarypy.py < Input.txt >> encode_output.txt
+          
         
         
     
