@@ -22,15 +22,39 @@ jobs:
 
       - name: Run Values for encoding
         run: |
-          cat <<EOF > Input.txt
+          cat <<EOF > encode.txt
           encode
           Hello World!
           EOF
 
       - name: Run Binary Encoder
         run: |
-          python binarypy.py < Input.txt >> encode_output.txt
-          
-        
-        
-    
+          echo -e " Encode Output:\n" > Test-Run-Result/Result.txt
+          python binarypy.py < encode.txt | tee encode_output.txt >> Test-Run-Result/Result.txt
+
+      - name: Run Values for decoding
+        run: |
+          echo "decode" > decode.txt
+          tail -n 1 encode_output.txt >> decode.txt
+          cat decode.txt
+
+      - name: Run Binary Decoder
+        run: |
+          echo -e "\n\nDecode Output:\n" >> Test-Run-Result/Result.txt
+          python binarypy.py < decode.txt >> Test-Run-Result/Result.txt
+
+      - name: Upload Binary Encoder/Decoder Test Run Results to Repo
+        uses: actions/upload-artifact@v4
+        with:
+          name: Push Binary Encoder/Decoder Test-Run-Result
+          path: Test-Run-Result/Result.txt
+      - name: Push Result.txt to Repo
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
+          git add Test-Run-Result/Result.txt
+          git commit -m "Update Binary Encoder/Decoder output [skip ci]" || echo "No changes to commit"
+          git push
