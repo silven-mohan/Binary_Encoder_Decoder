@@ -1,0 +1,8 @@
+ Encode Output:
+
+Type 'encode' to convert text to binary or 'decode' to convert binary to textEnter Text:Binary:  0100100001100101011011000110110001101111 010101110110111101110010011011000110010000100001
+
+
+Decode Output:
+
+Type 'encode' to convert text to binary or 'decode' to convert binary to textEnter Binary: Decoded Text: ?????????????2?67??????
